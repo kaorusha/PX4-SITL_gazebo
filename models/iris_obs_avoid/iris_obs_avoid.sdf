@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <sdf version='1.6'>
   <model name='iris_obs_avoid'>
     <include>
@@ -6,6 +7,22 @@
 
     <!-- Only difference to regular iris is this sensor and a MAVLink stream -->
     <include>
+      <uri>model://hokuyo_lidar</uri>
+      <pose>0 0 0.15 0 0 0</pose>
+    </include>
+    <joint name="lidar_joint" type="fixed">
+      <child>hokuyo_lidar::link</child>
+      <parent>iris::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+
+    <!--<include>
       <uri>model://bumper_sensor</uri>
     </include>
 
@@ -19,12 +36,12 @@
           <lower>0</lower>
         </limit>
       </axis>
-    </joint>
+    </joint>-->
 
     <!--downward-facing lidar-->
     <include>
       <uri>model://lidar</uri>
-      <pose>0 0 -0.05 0 0 0</pose>
+      <pose>-0.12 0 0 0 0 0</pose>
       <name>lidar0</name>
     </include>
 
@@ -34,7 +51,7 @@
     </joint>
 
     <!--forward-facing lidar-->
-    <include>
+    <!-- <include>
       <uri>model://lidar</uri>
       <pose>0 0 -0.10 0 -1.57079633 0</pose>
       <name>lidar1</name>
@@ -43,10 +60,10 @@
     <joint name="lidar1_joint" type="fixed">
       <parent>iris::base_link</parent>
       <child>lidar1::link</child>
-    </joint>
+    </joint> -->
 
     <!--right-facing lidar-->
-    <include>
+    <!-- <include>
       <uri>model://lidar</uri>
       <pose>0 0 -0.10 -1.57079633 0 0</pose>
       <name>lidar2</name>
@@ -55,10 +72,10 @@
     <joint name="lidar2_joint" type="fixed">
       <parent>iris::base_link</parent>
       <child>lidar2::link</child>
-    </joint>
+    </joint> -->
 
     <!--left-facing lidar-->
-    <include>
+    <!-- <include>
       <uri>model://lidar</uri>
       <pose>0 0 -0.10 1.57079633 0 0</pose>
       <name>lidar3</name>
@@ -67,7 +84,7 @@
     <joint name="lidar3_joint" type="fixed">
       <parent>iris::base_link</parent>
       <child>lidar3::link</child>
-    </joint>
+    </joint> -->
 
     <!-- NOTE: PX4 uORB is currently limited to a max of 4 instances per topic
          which doesn't allow to add more sensor data stream -->
@@ -85,16 +102,16 @@
     </joint> -->
 
     <!--upward-facing lidar-->
-    <!-- <include>
+    <include>
       <uri>model://lidar</uri>
-      <pose>0 0 -0.05 3.14159265 0 0</pose>
+      <pose>-0.12 0 0.05 3.14159265 0 0</pose>
       <name>lidar5</name>
     </include>
 
     <joint name="lidar5_joint" type="fixed">
       <parent>iris::base_link</parent>
       <child>lidar5::link</child>
-    </joint> -->
+    </joint>
 
   </model>
 </sdf>
