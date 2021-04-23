@@ -3,22 +3,22 @@
   <model name="hokuyo_lidar">
     <pose>0 0 0 0 0 0</pose>
     <link name="link">
-   <inertial>      
-	  <mass>0.001</mass>     
-	   <inertia> <!-- inertias are tricky to compute -->         	
-     <ixx>0.001</ixx>      
-		 <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->      
- 		<ixy>0.0</ixy>      
-    <!-- for a box: ixy = 0 -->     
-		<ixz>0.0</ixz>        
-    <!-- for a box: ixz = 0 -->        
-		<iyy>0.001</iyy>       
-    <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->          			
-    <iyz>0.0</iyz>        
- 	  <!-- for a box: iyz = 0 -->       
-   		<izz>0.001</izz>      
-    <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->        		  
-    </inertia>    
+   <inertial>
+	  <mass>0.001</mass>
+	   <inertia> <!-- inertias are tricky to compute -->
+     <ixx>0.001</ixx>
+		 <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+ 		<ixy>0.0</ixy>
+    <!-- for a box: ixy = 0 -->
+		<ixz>0.0</ixz>
+    <!-- for a box: ixz = 0 -->
+		<iyy>0.001</iyy>
+    <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+    <iyz>0.0</iyz>
+ 	  <!-- for a box: iyz = 0 -->
+   		<izz>0.001</izz>
+    <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+    </inertia>
  	 </inertial>
       <visual name="visual">
         <geometry>
@@ -49,7 +49,7 @@
         <ray>
           <scan>
             <horizontal>
-              <samples>640</samples>
+              <samples>360</samples>
               <resolution>1</resolution>
               <min_angle>-3.14</min_angle>
               <max_angle>3.14</max_angle>
@@ -61,17 +61,17 @@
             <resolution>0.01</resolution>
           </range>
         </ray>
-     
+
  	<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
          <robotNamespace></robotNamespace>
          <topicName>scan</topicName>
          <frameName>laser_2d</frameName>
   </plugin>
         <always_on>1</always_on>
-        <update_rate>500</update_rate>
+        <update_rate>10</update_rate>
         <visualize>true</visualize>
       </sensor>
-	 
+
     </link>
   </model>
 </sdf>
