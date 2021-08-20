@@ -64,8 +64,8 @@
 
  	<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
          <robotNamespace></robotNamespace>
-         <topicName>scan</topicName>
-         <frameName>base_scan</frameName>
+         <topicName>/scan</topicName>
+         <frameName>/base_scan</frameName>
   </plugin>
         <always_on>1</always_on>
         <update_rate>10</update_rate>
