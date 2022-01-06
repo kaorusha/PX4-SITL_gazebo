@@ -1,6 +1,6 @@
 <!-- DO NOT EDIT: Generated from iris.sdf.jinja -->
 <sdf version='1.6'>
-  <model name='iris'>
+  <model name='helicopter'>
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
@@ -35,7 +35,7 @@
         </surface>
       </collision>
       <visual name='base_link_inertia_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.2 1.571 0 3.141</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -86,7 +86,7 @@
       </axis>
     </joint>
     <link name='rotor_0'>
-      <pose>0.13 -0.22 0.023 0 0 0</pose>
+      <pose>0.0 0.0 0.2 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -117,11 +117,11 @@
         </surface>
       </collision>
       <visual name='rotor_0_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0.02 0 1.571 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://helicopter/meshes/main_rotor.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -151,7 +151,7 @@
       </axis>
     </joint>
     <link name='rotor_1'>
-      <pose>-0.13 0.2 0.023 0 0 0</pose>
+      <pose>-0.435 0.0 0.07 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -182,16 +182,16 @@
         </surface>
       </collision>
       <visual name='rotor_1_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.435 0 0.14 1.571 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://helicopter/meshes/tail_rotor.stl</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/DarkGrey</name>
+            <name>Gazebo/Blue</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -203,7 +203,7 @@
       <child>rotor_1</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
@@ -246,7 +246,7 @@
           </friction>
         </surface>
       </collision>
-      <visual name='rotor_2_visual'>
+      <!-- <visual name='rotor_2_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -260,7 +260,7 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
-      </visual>
+      </visual> -->
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -311,7 +311,7 @@
           </friction>
         </surface>
       </collision>
-      <visual name='rotor_3_visual'>
+      <!-- <visual name='rotor_3_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -325,7 +325,7 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
-      </visual>
+      </visual> -->
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
